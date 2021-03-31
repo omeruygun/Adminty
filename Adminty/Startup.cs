@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -12,17 +13,31 @@ namespace Adminty
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Env { get; set; }
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            Env = env;
         }
 
-        public IConfiguration Configuration { get; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            IMvcBuilder builder = services.AddRazorPages();
+
+#if DEBUG
+            if (Env.IsDevelopment())
+            {
+                builder.AddRazorRuntimeCompilation();
+            }
+#endif
+
+            services.AddMvc(options =>
+            {
+                options.EnableEndpointRouting = false;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,20 +47,15 @@ namespace Adminty
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-            }
-
-            app.UseStaticFiles();
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
+            app.UseMvc(routes =>
             {
-                endpoints.MapRazorPages();
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "Home", action = "Index" });
             });
         }
     }

@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="counter">
+        Counter: {{ counter }}
+    </div>
+
+    <script>
+        const CounterApp = {
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+            mounted() {
+                setInterval(() => {
+                    this.counter++
+                }, 1000)
+            }
+        }
+
+
+        Vue.createApp(CounterApp).mount('#counter')
+
+    </script>
+</body>
+</html>
