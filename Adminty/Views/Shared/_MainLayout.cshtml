@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Adminty - Premium Admin Template by Colorlib </title>
+    <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 10]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="#">
+    <meta name="keywords" content="Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
+    <meta name="author" content="#">
+    <!-- Favicon icon -->
+    <link rel="icon" href="@Url.Content("~/assets/images/favicon.ico")" type="image/x-icon">
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <!-- Required Fremwork -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/bower_components/bootstrap/css/bootstrap.min.css")">
+    <!-- themify-icons line icon -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/assets/icon/themify-icons/themify-i4cons.css")">
+    <!-- ico font -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/assets/icon/icofont/css/icofont.css")">
+    <!-- feather Awesome -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/assets/icon/feather/css/feather.css")">
+    <!-- Style.css -->
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/assets/css/style.css")">
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/assets/css/jquery.mCustomScrollbar.css")">
+
+    @RenderSection("Styles", false)
+
+
+    <!-- Required Jquery -->
+    <script type="text/javascript" src="@Url.Content("~/bower_components/jquery/js/jquery.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/bower_components/jquery-ui/js/jquery-ui.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/bower_components/popper.js/js/popper.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/bower_components/bootstrap/js/bootstrap.min.js")"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="@Url.Content("~/bower_components/jquery-slimscroll/js/jquery.slimscroll.js")"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="@Url.Content("~/bower_components/modernizr/js/modernizr.js")"></script>
+    <!-- Chart js -->
+    <script type="text/javascript" src="@Url.Content("~/bower_components/chart.js/js/Chart.js")"></script>
+    <!-- amchart js -->
+    <script src="@Url.Content("~/assets/pages/widget/amchart/amcharts.js")"></script>
+    <script src="@Url.Content("~/assets/pages/widget/amchart/serial.js")"></script>
+    <script src="@Url.Content("~/assets/pages/widget/amchart/light.js")"></script>
+    <script src="@Url.Content("~/assets/js/jquery.mCustomScrollbar.concat.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/assets/js/SmoothScroll.js")"></script>
+    <script src="@Url.Content("~/assets/js/pcoded.min.js")"></script>
+    <!-- custom js -->
+    <script src="@Url.Content("~/assets/js/vartical-layout.min.js")"></script>
+
+
+    @RenderSection("Scripts", false)
+</head>
+<body>
+
+    @{Html.RenderPartial("_ThemeLoaderPartial");}
+
+    <div id="pcoded" class="pcoded">
+        <div class="pcoded-overlay-box"></div>
+        <div class="pcoded-container navbar-wrapper">
+
+            @{Html.RenderPartial("_NavbarPartial");}
+
+            @{Html.RenderPartial("_SidebarPartial");}
+
+            <div class="pcoded-main-container">
+                <div class="pcoded-wrapper">
+
+                    @{Html.RenderPartial("_MenuPartial");}
+
+                    <div class="pcoded-content">
+                        <div class="pcoded-inner-content">
+                            <div class="main-body">
+                                <div class="page-wrapper">
+
+                                    <div class="page-body">
+
+                                        @RenderBody()
+                                    </div>
+                                </div>
+
+                                <div id="styleSelector">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>
