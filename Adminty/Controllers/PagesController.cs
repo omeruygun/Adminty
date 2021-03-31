@@ -16,5 +16,29 @@ namespace Adminty.Controllers
         {
             return View();
         }
+        public IActionResult Crm()
+        {
+            return View();
+        }
+        public IActionResult Analytics()
+        {
+            return View();
+        }
+        public IActionResult MenuStatic()
+        {
+            return View();
+        }
+        public IActionResult MenuHeaderFixed()
+        {
+            return View();
+        }
+        public IActionResult MenuCompact()
+        {
+            return View();
+        }
+        public IActionResult MenuSidebar()
+        {
+            return View();
+        }
     }
 }
